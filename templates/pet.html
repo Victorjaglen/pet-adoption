@@ -1,0 +1,65 @@
+{% extends 'layout.html' %}
+
+
+{% block button %}
+    <a class="add-pet-btn" href="{{ url_for('index') }}" alt="Add Pet">
+        <i class="fas fa-plus"></i>
+        Pet
+    </a>
+{% endblock %}
+
+
+{% block content %}
+    <section id="pet-data">
+        <img src="{{ pet.url }}" alt="{{pet.alt_tag}}">
+        <div id="pet-name">
+            <h2>Name</h2>
+            <p>{{ pet.name}}</p>
+        </div>
+        <div id="left-col">
+            <div>
+                <h2>Age</h2>
+                <p>{{ pet.age}}</p>
+            </div>
+            <div>
+                <h2>Breed</h2>
+                <p>{{ pet.Breed}}</p>
+            </div>
+            <div>
+                <h2>Color</h2>
+                <p>{{ pet.Color}}</p>
+            </div>
+            <div>
+                <h2>Size</h2>
+                <p>{{ pet.Size}}</p>
+            </div>
+        </div>
+        <div id="right-col">
+            <div>
+                <h2>Weight</h2>
+                <p>{{ pet.Weight}}</p>
+            </div>
+            <div>
+                <h2>Gender</h2>
+                <p>Male</p>
+            </div>
+            <div>
+                <h2>Spayed/Neutered</h2>
+                <p>{{ pet.Spayed}}</p>
+            </div>
+            <div>
+                <h2>Housetrained</h2>
+                <p>{{ pet.Housetrained}}</p>
+            </div>
+        </div>
+        <div id="description">
+            <h2>Description</h2>
+            <p>{{ pet.description}}</p>
+        </div>
+    </section>
+    <section id="edit-delete">
+        <a href="{{ url_for('edit_pet', id=pet.id)}}"><i class="far fa-edit"></i>Edit</a>
+        <a href="{{url_for('delete_pet', id=pet.id)}}"><i class="far fa-trash-alt"></i>Delete</a>
+    </section>
+
+{% endblock %}
